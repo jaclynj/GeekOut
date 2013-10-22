@@ -1,0 +1,20 @@
+<div class = "tags">
+<h4>Find events relevant to your interests!</h4>
+<h5><a href="/tags" class = 'fifteen columns'>Geekery Tags</a></h5><br>
+<% Tag.all.each do |t| %>
+  <a href = "/tags/<%=t.id%>" class = 'three columns'><%= t.name %></a>
+<% end %>
+</div>
+
+<div class = "featured fifteen columns">
+
+<h3>Featured Outings</h3>
+
+<% Place.all.each do |p| %>
+  <a href = "/places/<%=p.id%>"><%= p.name %></a>
+  <% date_array = p.date.to_s.split("-") %>
+  <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %><br>
+  <%= p.venue_address %><br>
+  <%= p.description %><br><br>
+<% end %>
+</div>

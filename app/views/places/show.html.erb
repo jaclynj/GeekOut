@@ -1,0 +1,23 @@
+<div class = "event">
+  <%p = @place%>
+  <h3><%= p.name %></h3>
+  <% date_array = p.date.to_s.split("-") %>
+  <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %> at
+  <%= p.start_time %> <br>
+  <%= p.sponsor %> <br>
+  <%= p.location %> <br>
+    <%= p.venue_address %> <br>
+  <%= p.description %><br>
+  <% @tags = p.tags %><br>
+  <h6>Tags:</h6>
+  <% @tags.each do |t| %>
+    <a href = "/tags/<%=t.id%>"><%= t.name %></a> |
+  <% end %><br><br>
+    <a href ="<%= p.link %>">More Info</a><br>
+  <br>
+  <div class = "admin">
+    <%=link_to 'Edit this outing', "/places/#{p.id}/edit" %>
+    <%=link_to 'Delete this outing', "/places/#{p.id}", :method => :delete %>
+  </div>
+</div>
+
