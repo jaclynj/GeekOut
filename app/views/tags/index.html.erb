@@ -1,0 +1,5 @@
+<h3>All Tags</h3>
+
+<% Tag.all.each do |t| %>
+  <a href = "/tags/<%=t.id%>" class = 'three columns'><%= t.name %></a>
+<% end %>

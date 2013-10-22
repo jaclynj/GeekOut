@@ -1,0 +1,9 @@
+<div class = "event">
+  <%t = @tag%>
+  <h3><%= t.name %></h3>
+  <br>
+  <div class = "admin">
+    <%=link_to 'Delete this tag', "/tags/#{t.id}", :method => :delete %>
+  </div>
+</div>
+

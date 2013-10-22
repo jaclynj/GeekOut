@@ -1,0 +1,205 @@
+/*
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+
+/* Table of Content
+==================================================
+	#Reset & Basics
+	#Basic Styles
+	#Site Styles
+	#Typography
+	#Links
+	#Lists
+	#Images
+	#Buttons
+	#Forms
+	#Misc */
+
+
+/* #Reset & Basics (Inspired by E. Meyers)
+================================================== */
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline; }
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+		display: block; }
+	body {
+		line-height: 1; }
+	ol, ul {
+		list-style: none; }
+	blockquote, q {
+		quotes: none; }
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none; }
+	table {
+		border-collapse: collapse;
+		border-spacing: 0; }
+
+
+/* #Basic Styles
+================================================== */
+ h1 {
+ 	font-size: 2.3em;
+ 	color: #222266;
+ 	padding: 8px;
+ 	margin-bottom: 8px;
+ }
+
+ h1 .geek {
+ 	font-family: 'Share Tech Mono', sans-serif;
+ 	display: inline;
+ 	padding-right: 3px;
+ }
+
+ h1 .out {
+	font-family: 'Alex Brush', cursive;
+	display: inline;
+	font-size: 1.5em;
+	top:-2px;
+ }
+
+ header {
+ 	background: #DDEFFF;
+ 	padding: 8px;
+ 	margin-bottom: 20px;
+ 	text-align: left;
+ 	width: 100%;
+ 	font-size: 1.3em;
+ 	border-bottom: 1px solid #CCCCCC;
+ }
+
+nav li {
+	padding: 0 8px;
+	font-size: 0.72em;
+	display: inline;
+	font-family: sans-serif;
+}
+
+nav {
+	margin: 12px;
+}
+
+h2, h3, h4, h5 {
+ 	font-size: 1.7em;
+ 	padding: 10px;
+ }
+
+  	body {
+		background: #E2E5E6;
+		font: 16px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		color: #3B3C3C;
+		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+		-webkit-text-size-adjust: 100%;
+		margin: 0 auto;
+		text-align: center;
+ }
+
+.main {
+ 	background-color: #CCCCCC;
+ }
+.event {
+	margin: 0 auto;
+	text-align: center;
+}
+.admin a{
+	padding:3px;
+	margin: 20px 2px;
+	background: #DDEFFF;
+	border: 1px solid #BBBBBB;
+	border-radius: 5px;
+}
+
+.admin {
+	margin: 20px auto;
+	text-align: center;
+}
+
+.featured {
+	margin-top: 20px;
+}
+
+/* #Links
+================================================== */
+	a, a:visited { color: #0053CD; text-decoration: none; font-weight: bold; outline: 0, font-family: 'Share Tech Mono', sans-serif; ; }
+	a:hover, a:focus { color: #333333; }
+	p a, p a:visited { line-height: inherit; }
+
+/* #Buttons
+================================================== */
+
+	.button,
+	button,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"] {
+	  display: inline-block;
+	  font-size: 11px;
+	  font-weight: bold;
+	  text-decoration: none;
+	  text-shadow: 0 1px rgba(255, 255, 255, .75);
+	  cursor: pointer;
+	  margin-bottom: 20px;
+	  line-height: normal;
+	  padding: 8px 10px;
+	  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+}
+	.button:hover,
+	button:hover,
+	input[type="submit"]:hover,
+	input[type="reset"]:hover,
+	input[type="button"]:hover {
+		color: #222;
+	  border: 1px solid #848686;
+	  border-top: 1px solid #aaa;
+	  border-left: 1px solid #aaa;
+	}
+
+	/* Fix for odd Mozilla border & padding issues */
+	button::-moz-focus-inner,
+	input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+	}
+
+
+/* #Forms
+================================================== */
+
+	form {
+		margin: 0 auto;
+		text-align: center;
+		display: block;
+	}
+	label, legend {
+		display: block;
+		font-weight: bold;
+		font-size: 13px;
+	}
+	select {
+		width: 220px; }
+	input[type="checkbox"] {
+		display: inline; }
+		form input[type="submit"] {
+			display: block;
+			margin: 10px auto;
+		}
+
+/* #Misc
+================================================== */
+	.remove-bottom { margin-bottom: 0 !important; }
+	.half-bottom { margin-bottom: 10px !important; }
+	.add-bottom { margin-bottom: 20px !important; }
+
+

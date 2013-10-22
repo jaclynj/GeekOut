@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GEEKout</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <link href='http://fonts.googleapis.com/css?family=Alex+Brush|Share+Tech+Mono' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../../assets/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../../assets/images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+    <header>
+  <div class ="container">
+      <a href ="/">
+  <h1 class = "one-third column">
+  <div class = "geek">GEEK</div><div class ="out">out</div></h1></a>
+
+  <nav class = "ten columns">
+    <ul>
+      <li><a href = "/places/new">ADD OUTING</a></li>
+      <li><a href = "/places">VIEW OUTINGS</a></li>
+      <li><a href = "/tags">VIEW ALL GEEKERY TAGS</a></li>
+    </ul>
+  </div>
+</nav>
+</header>
+<div class ="main container">
+  <div class = "tweleve columns">
+    <%= yield %>
+  </div>
+</div>
+</body>
+</html>

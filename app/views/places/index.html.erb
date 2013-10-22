@@ -1,0 +1,11 @@
+<div class = "featured fifteen columns">
+<h3>Featured Outings:</h3>
+
+<% Place.all.each do |p| %>
+  <a href = "/places/<%=p.id%>"><%= p.name %></a>
+  <% date_array = p.date.to_s.split("-") %>
+  <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %><br>
+  <%= p.venue_address %><br>
+  <%= p.description%><br><br>
+<% end %>
+</div>
