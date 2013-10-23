@@ -13,7 +13,7 @@
 <%= f.label :sponsor %>
 <%= f.text_field :sponsor %>
 <%= f.label :location %>
-<%= f.select(:location, options_for_select([['New York, NY', 'New York, NY'], ['Philadelphia, PA','Philadelphia, PA']] )) %>
+<%= f.select(:location, options_for_select([['New York, NY', 'New York, NY'], ['Philadelphia, PA','Philadelphia, PA']], p.location )) %>
 <%= f.label 'Venue Address' %>
 <%= f.text_field :venue_address %>
 <%= f.label :description %>

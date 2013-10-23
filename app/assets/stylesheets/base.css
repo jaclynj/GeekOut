@@ -108,6 +108,8 @@ h2, h3, h4, h5 {
 
 .main {
  	background-color: #CCCCCC;
+ 	border: 1px solid #EEEEEE;
+ 	border-radius: 2px;
  }
 .event {
 	margin: 0 auto;
@@ -128,6 +130,10 @@ h2, h3, h4, h5 {
 
 .featured {
 	margin-top: 20px;
+}
+
+.main_box {
+	border: 2px soild black;
 }
 
 .home_tags {
