@@ -133,8 +133,18 @@ h2, h3, h4, h5 {
 .home_tags {
 	display: inline;
 }
+.checkboxes form {
+	display: inline;
+}
+
 .checkboxes label {
 	display: inline;
+}
+
+
+
+.tags {
+	margin-bottom: 15px;
 }
 
 /* #Links
