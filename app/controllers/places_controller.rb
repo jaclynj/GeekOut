@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
 
 #GET '/';
   def view
@@ -15,9 +16,14 @@ class PlacesController < ApplicationController
 #POST '/places'
   def create
     #retrieves form params and saves new place
-    @place = params[:place]
+    @place = params[:place] #TODO remove instance variable
     @tags = @place[:tags]
-    place = Place.new
+
+
+    # filtered_params = params[:place].except(:tags) #http://stackoverflow.com/questions/711863/ruby-hash-filter
+    # place = Place.new(filtered_params)
+
+    place = Place.new()
     place.name = @place[:name]
     place.date = @place[:date]
     place.start_time = @place[:start_time]

@@ -12,4 +12,6 @@ class Place < ActiveRecord::Base
     self.tags << tags
   end
 
+  scope :current_places, where("date > ?", 1.day.ago)
+
 end

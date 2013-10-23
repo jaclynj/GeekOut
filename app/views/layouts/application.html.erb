@@ -30,17 +30,28 @@
   <h1 class = "one-third column">
   <div class = "geek">GEEK</div><div class ="out">out</div></h1></a>
 
-  <nav class = "ten columns">
+  <nav>
     <ul>
-      <li><a href = "/places/new">ADD OUTING</a></li>
-      <li><a href = "/places">VIEW OUTINGS</a></li>
-      <li><a href = "/tags">VIEW ALL TAGS</a></li>
+      <li class = "three columns"><a href = "/places/new">ADD OUTING</a></li>
+      <li class = "three columns"><a href = "/tags">VIEW ALL TAGS</a></li>
+      <%if current_user %>
+      <li class = "three columns">Logged in as: <%= current_user.email %> <%= link_to "LOG OUT", logout_path %></li>
+      <% else %>
+      <li class = "two columns"><%= link_to "SIGN UP", signup_path %></li>
+      <li class = "two columns"><%= link_to "LOGIN", login_path %></li>
+      <% end %>
+    </div>
     </ul>
   </div>
 </nav>
 </header>
 <div class ="main container">
   <div class = "main_box sixteen columns">
+<div class ="flash">
+<% flash.each do |key, msg| %>
+  <%= content_tag :div, msg, :id => key %>
+<% end %>
+</div>
     <%= yield %>
   </div>
 </div>

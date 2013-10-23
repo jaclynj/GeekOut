@@ -4,12 +4,22 @@ IntoverseApp::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
 root to: 'homepages#index'
 match '/results' => 'homepages#results', :via => :get
 
+get 'signup', to: 'users#new', as: 'signup'
+get 'login', to: 'sessions#new', as: 'login'
+get 'logout', to: 'sessions#destroy', as: 'logout'
+
+resources :users
+resources :sessions
+
 resources :places
 resources :tags, :except => :edit, :except => :update
+# resources :tags, :except => [:edit, :update]# , :except => :update
+# OPTIMIZE
+
+
 
   # Sample resource route with options:
   #   resources :products do
