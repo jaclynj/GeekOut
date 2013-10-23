@@ -10,6 +10,10 @@ class HomepagesController < ApplicationController
     @filtered_multiple_tags = []
     @filtered_at_least_one_tag = []
 
+    # OPTIMIZE with where statement so that you don't have to do multiple database calls
+    # there shoudl only be 1 call to where
+    # Client.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight, tag1 or tag 2 or tag 3, order_by: "desc")
+
     if tag_filter != nil
       tag_filter.each do |f|
         @filtered_by_single_tag = Tagging.where({tag_id: f})

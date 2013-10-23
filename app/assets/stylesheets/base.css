@@ -147,7 +147,10 @@ h2, h3, h4, h5 {
 	display: inline;
 }
 
-
+.flash {
+	color: red;
+	background-color: #dddddd;
+}
 
 .tags {
 	margin-bottom: 15px;
