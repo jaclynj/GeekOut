@@ -5,7 +5,7 @@
    <a href = "/places/<%=p.id%>"><%=p.name%></a>
   | <%=p.location%>
     <% date_array = p.date.to_s.split("-") %>
-  | <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %> |
+  | <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %> |<br>
   <% end %>
   <br>
   <div class = "admin">
