@@ -1,19 +1,57 @@
 <div class = "event">
   <%p = @place%>
   <h3><%= p.name %></h3>
-  <% date_array = p.date.to_s.split("-") %>
-  <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %> at
-  <%= p.start_time %> <br>
-  <%= p.sponsor %> <br>
-  <%= p.location %> <br>
-    <%= p.venue_address %> <br>
-  <%= p.description %><br>
-  <% @tags = p.tags %><br>
+  <% if p.date != nil && p.end_date == nil %>
+    <% date_array = p.date.to_s.split("-") %>
+    Date: <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %><br>
+  <%else%>
+  <%end%>
+
+    <% if p.end_date != nil %>
+    <% date_array = p.date.to_s.split("-") %>
+    Start date: <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %>
+    <% date_array = p.end_date.to_s.split("-") %>
+    End date: <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %><br>
+  <%else%>
+  <%end%>
+
+  <% if p.start_time != nil && p.start_time != "" %>
+    Start time: <%= p.start_time %> <br>
+  <%else%>
+  <%end%>
+
+  <% if p.end_time != nil && p.end_time != "" %>
+    End time: <%= p.end_time %> <br>
+  <%else%>
+  <%end%>
+
+  <% if p.sponsor != nil && p.venue_address != "" %>
+    Hosted/Sponsored by: <%= p.sponsor %> <br>
+  <%else%>
+  <%end%>
+
+  <% if p.venue_address != nil && p.venue_address != "" %>
+    Address: <%= p.venue_address %> <br><br>
+  <%else%>
+  <%end%>
+
+  <% if p.description != nil %>
+    <%= p.description %><br>
+  <%else%>
+  <%end%>
+  <% if p.tags.empty? == false %>
   <h6>Tags:</h6>
-  <% @tags.each do |t| %>
+  <% p.tags.each do |t| %>
     <a href = "/tags/<%=t.id%>"><%= t.name %></a> |
   <% end %><br><br>
+  <%else%>
+  <%end%>
+
+  <% if p.link != nil && p.link != "" %>
     <a href ="<%= p.link %>">More Info</a><br>
+  <%else%>
+  <%end%>
+
   <br>
   <div class = "admin">
     <%=link_to 'Edit this outing', "/places/#{p.id}/edit" %>

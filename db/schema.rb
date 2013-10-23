@@ -11,19 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131022160251) do
+ActiveRecord::Schema.define(:version => 20131022224822) do
 
   create_table "places", :force => true do |t|
-    t.string   "name"
+    t.string   "name",          :default => "", :null => false
     t.date     "date"
     t.string   "start_time"
     t.string   "sponsor"
     t.string   "location"
     t.string   "venue_address"
-    t.string   "description"
+    t.text     "description"
     t.string   "link"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.date     "end_date"
+    t.string   "end_time"
   end
 
   create_table "taggings", :id => false, :force => true do |t|

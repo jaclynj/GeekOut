@@ -26,7 +26,8 @@ class PlacesController < ApplicationController
     place.venue_address = @place[:venue_address]
     place.description = @place[:description]
     place.link = @place[:link]
-    place.save
+    place.end_time = @place[:end_time]
+    place.end_date = @place[:end_date]
     #redirects to '/places/@place_id'
     if place.save
       if @tags != nil
@@ -34,6 +35,7 @@ class PlacesController < ApplicationController
       end
       redirect_to "/places/#{place.id}"
     else
+      redirect_to "/places" #add flash
     end
   end
 
@@ -64,6 +66,8 @@ class PlacesController < ApplicationController
     place.venue_address = @place[:venue_address]
     place.description = @place[:description]
     place.link = @place[:link]
+    place.end_time = @place[:end_time]
+    place.end_date = @place[:end_date]
     place.save
     if place.save
       if @tags != nil

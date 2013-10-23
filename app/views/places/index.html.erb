@@ -3,9 +3,18 @@
 
 <% Place.all.each do |p| %>
   <a href = "/places/<%=p.id%>"><%= p.name %></a>
-  <% date_array = p.date.to_s.split("-") %>
-  <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %><br>
-  <%= p.venue_address %><br>
-  <%= p.description%><br><br>
+  <% if p.date != nil %>
+    <% date_array = p.date.to_s.split("-") %>
+    <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %><br>
+  <%else%>
+  <%end%>
+    <% if p.venue_address != nil %>
+      <%= p.venue_address %><br>
+      <%else%>
+      <%end%>
+    <% if p.description != nil %>
+      <%= p.description%><br><br>
+    <%else%>
+    <%end%>
 <% end %>
 </div>
