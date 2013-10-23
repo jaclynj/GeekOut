@@ -6,6 +6,7 @@ IntoverseApp::Application.routes.draw do
   #   resources :products
 
 root to: 'homepages#index'
+match '/results' => 'homepages#results', :via => :get
 
 resources :places
 resources :tags, :except => :edit, :except => :update

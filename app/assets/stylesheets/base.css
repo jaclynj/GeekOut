@@ -130,6 +130,13 @@ h2, h3, h4, h5 {
 	margin-top: 20px;
 }
 
+.home_tags {
+	display: inline;
+}
+.checkboxes label {
+	display: inline;
+}
+
 /* #Links
 ================================================== */
 	a, a:visited { color: #0053CD; text-decoration: none; font-weight: bold; outline: 0, font-family: 'Share Tech Mono', sans-serif; ; }

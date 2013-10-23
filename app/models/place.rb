@@ -1,5 +1,5 @@
 class Place < ActiveRecord::Base
-  attr_accessible :name, :date, :start_time, :sponsor, :location, :venue_address, :description, :link, :tags, :end_time, :end_date
+  attr_accessible :name, :date, :start_time, :sponsor, :location, :venue_address, :description, :link, :tags, :end_time, :end_date, :taggings
   has_many :taggings
   has_many :tags, through: :taggings
   validates :name, presence: true

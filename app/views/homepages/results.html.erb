@@ -1,0 +1,21 @@
+<!-- #outings in nyc -->
+
+<% if @filtered_at_least_one_tag != [] %>
+  <h3>Outings matching at least one tag</h3>
+  <% @filtered_at_least_one_tag.each do |f|%>
+    <a href ="/places/<%=f.id%>"><%= f.name %></a><br>
+  <%end%>
+<% else %>
+  No outings match any of your tag filters.
+<%end%>
+
+<h3>Outings matching multiple tags</h3>
+<%if @filtered_multiple_tags != [] %>
+    <%@filtered_multiple_tags.each do |f|%>
+      <a href ="/places/<%=f.id%>"><%= f.name %></a><br>
+    <%end%>
+<%else%>
+    No outings matching multiple tags.
+<%end%>
+
+

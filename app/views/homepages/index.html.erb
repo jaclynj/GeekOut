@@ -1,10 +1,18 @@
-<div class = "tags">
-<h4>Find events relevant to your interests!</h4>
-<h5><a href="/tags" class = 'fifteen columns'>Geekery Tags</a></h5><br>
-<% Tag.all.each do |t| %>
-  <a href = "/tags/<%=t.id%>" class = 'three columns'><%= t.name %></a>
+
+<h4>Find events relevant to your interests!</h4><br>
+<div class = "checkboxes">
+<%= form_tag("results", method: :get) do %>
+  <% Tag.all.each do |t| %>
+  <div class = "home_tags three columns">
+    <%= label_tag("#{t.name}") %>
+    <%= check_box_tag "tag[]", t.id %>
+    </div>
+  <% end %>
+  <div class ="fifteen columns"><%= submit_tag "Search" %><a href="/tags" class = 'fifteen columns'>View all categories</a></div>
 <% end %>
 </div>
+
+
 
 <div class = "featured fifteen columns">
 
