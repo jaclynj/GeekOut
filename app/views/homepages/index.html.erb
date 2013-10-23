@@ -23,6 +23,11 @@
   <% date_array = p.date.to_s.split("-") %>
   <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %><br>
   <%= p.venue_address %><br>
-  <%= p.description %><br><br>
+  <%= p.description %><br>
+  <%if p.tags.empty? == false %>
+    <% p.tags.each do |t| %>
+     <a href = "/tags/<%=t.id%>"> <%= t.name %></a> |
+     <%end%>
+  <% end %><br><br>
 <% end %>
 </div>

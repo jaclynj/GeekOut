@@ -4,6 +4,10 @@
   <h3>Outings matching at least one tag</h3>
   <% @filtered_at_least_one_tag.each do |f|%>
     <a href ="/places/<%=f.id%>"><%= f.name %></a><br>
+  Tags:
+  <% f.tags.each do |t| %>
+     <a href = "/tags/<%=t.id%>"> <%= t.name %></a> |
+  <% end %><br><br>
   <%end%>
 <% else %>
   No outings match any of your tag filters.
@@ -13,6 +17,10 @@
 <%if @filtered_multiple_tags != [] %>
     <%@filtered_multiple_tags.each do |f|%>
       <a href ="/places/<%=f.id%>"><%= f.name %></a><br>
+      Tags:
+      <% f.tags.each do |t| %>
+      <a href = "/tags/<%=t.id%>"> <%= t.name %></a> |
+    <% end %><br><br>
     <%end%>
 <%else%>
     No outings matching multiple tags.
