@@ -13,8 +13,13 @@
       <%else%>
       <%end%>
     <% if p.description != nil %>
-      <%= p.description%><br><br>
+      <%= p.description%><br>
     <%else%>
     <%end%>
+  <%if p.tags.empty? == false %>
+    <% p.tags.each do |t| %>
+     <a href = "/tags/<%=t.id%>"> <%= t.name %></a> |
+     <%end%>
+  <% end %><br><br>
 <% end %>
 </div>
