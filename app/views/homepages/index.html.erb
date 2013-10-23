@@ -2,13 +2,17 @@
 <h4>Find events relevant to your interests!</h4><br>
 I'm looking for events & venues in <%= form_tag("results", method: :get) do %><%= select_tag(:location, options_for_select([['Any City', 'Any City'],['New York, NY', 'New York, NY'], ['Philadelphia, PA','Philadelphia, PA']] ), {:style => 'width: 120px;'}) %>
  related to:<br><br>
-  <% Tag.all.each do |t| %>
+ <%all_tags = Tag.all%>
+ <% ordered_tags = (all_tags.sort {|a,b| a.name <=> b.name}) %>
+  <% ordered_tags.each do |t| %>
   <div class = "home_tags three columns">
     <%= label_tag("#{t.name}") %>
     <%= check_box_tag "tag[]", t.id %>
     </div>
   <% end %>
-  <div class ="fifteen columns">
+  <div class ="home_tags fifteen columns">
+    <%= label_tag("Match All Tags") %>
+    <%= check_box_tag "match_all", true %>
     <%= submit_tag "Search" %><a href="/tags" class = 'fifteen columns'>View all categories</a></div>
 <% end %>
 </div>

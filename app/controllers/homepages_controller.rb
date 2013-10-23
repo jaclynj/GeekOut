@@ -21,10 +21,10 @@ class HomepagesController < ApplicationController
       end
     end
     #filters by location
-    city = params[:location]
-    if city == 'Any City'
+    @city = params[:location]
+    if @city == 'Any City'
     else
-      @filtered_by_location = Place.where({location: city})
+      @filtered_by_location = Place.where({location: @city})
       if @filtered_by_location != []
         @filtered_by_tag.each do |outing|
           if @filtered_by_location.include?(outing)
@@ -34,6 +34,12 @@ class HomepagesController < ApplicationController
         end
       end
     end
+    #sorts by date
+    @filtered_by_tag = (@filtered_by_tag.sort {|a,b| b.date <=> a.date}).reverse
+
+    #is match all tags checked?
+    @match_all = params[:match_all]
+
     #contains outings matching at least one tag & multiple tags
     @filtered_at_least_one_tag = @filtered_by_tag.uniq
     @filtered_multiple_tags = @filtered_by_tag.select{|p| @filtered_by_tag.count(p) > 1}

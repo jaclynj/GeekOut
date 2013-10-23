@@ -1,29 +1,37 @@
-<!-- #outings in nyc -->
+<h2>Outings in <%=@city%></h2>
 
-<% if @filtered_at_least_one_tag != [] %>
-  <h3>Outings matching at least one tag</h3>
+<%if @match_all %>
+  <%if @filtered_multiple_tags != [] %>
+      <h2>matching multiple tags</h2>
+      <%@filtered_multiple_tags.each do |f|%>
+        <a href ="/places/<%=f.id%>"><%= f.name %></a><br>
+        <% date_array = f.date.to_s.split("-") %>
+        Date: <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}"%><br>
+        Tags:
+        <% f.tags.each do |t| %>
+        <a href = "/tags/<%=t.id%>"> <%= t.name %></a> |
+      <% end %><br><br>
+      <%end%>
+  <%else%>
+      <p>No outings matching multiple tags.</p>
+  <%end%>
+  <%else%>
+    <% if @filtered_at_least_one_tag != [] %>
+  <h2>matching at least one tag</h2>
   <% @filtered_at_least_one_tag.each do |f|%>
     <a href ="/places/<%=f.id%>"><%= f.name %></a><br>
+    <% date_array = f.date.to_s.split("-") %>
+    Date: <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}"%><br>
   Tags:
   <% f.tags.each do |t| %>
      <a href = "/tags/<%=t.id%>"> <%= t.name %></a> |
   <% end %><br><br>
   <%end%>
 <% else %>
-  No outings match any of your tag filters.
+  <p>No outings match any of your tag filters.</p>
+<%end%>
 <%end%>
 
-<h3>Outings matching multiple tags</h3>
-<%if @filtered_multiple_tags != [] %>
-    <%@filtered_multiple_tags.each do |f|%>
-      <a href ="/places/<%=f.id%>"><%= f.name %></a><br>
-      Tags:
-      <% f.tags.each do |t| %>
-      <a href = "/tags/<%=t.id%>"> <%= t.name %></a> |
-    <% end %><br><br>
-    <%end%>
-<%else%>
-    No outings matching multiple tags.
-<%end%>
+
 
 

@@ -1,5 +1,7 @@
 <h3>All Tags</h3>
 
-<% Tag.all.each do |t| %>
+ <%all_tags = Tag.all%>
+ <% ordered_tags = (all_tags.sort {|a,b| a.name <=> b.name}) %>
+<% ordered_tags.each do |t| %>
   <a href = "/tags/<%=t.id%>" class = 'three columns'><%= t.name %></a>
 <% end %>
