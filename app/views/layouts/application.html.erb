@@ -25,31 +25,40 @@
 </head>
 <body>
     <header>
+     <!--  LOGO -->
   <div class ="container">
       <a href ="/">
-  <h1 class = "one-third column">
+  <h1 class = "five columns">
   <div class = "geek">GEEK</div><div class ="out">out</div></h1></a>
 
   <nav>
-    <ul>
-      <li class = "three columns"><a href = "/places/new">ADD OUTING</a></li>
-      <li class = "three columns"><a href = "/tags">VIEW ALL TAGS</a></li>
-      <%if current_user %>
-      <li class = "three columns">Logged in as: <%= current_user.email %> <%= link_to "LOG OUT", logout_path %></li>
-      <% else %>
-      <li class = "two columns"><%= link_to "SIGN UP", signup_path %></li>
-      <li class = "two columns"><%= link_to "LOGIN", login_path %></li>
-      <% end %>
-    </div>
-    </ul>
-  </div>
+    <!-- QUICK SEARCH -->
+  <div class = "nav_form eight columns">
+    <%= render partial: 'layouts/nav_form'%>
+    </div
+
+    <!-- USER LOGIN/SIGNUP -->
+
+    <%if current_user %>
+    <div class = "logged_in two columns">
+    Logged in as: <%= current_user.email %><br><%= link_to "Log out", logout_path %> | <a href = "/places/new">Add event</a>
+    <% else %>
+    <div class = "current two columns">
+    <%= link_to "SIGN UP", signup_path %>
+    <%= link_to "LOGIN", login_path %></div>
+    <% end %>
+
+
 </nav>
+
 </header>
 <div class ="main container">
   <div class = "main_box sixteen columns">
+  <% if flash[:alert] || flash[:notice] %>
 <div class ="flash">
 <% flash.each do |key, msg| %>
   <%= content_tag :div, msg, :id => key %>
+<% end %>
 <% end %>
 </div>
     <%= yield %>
