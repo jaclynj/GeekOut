@@ -1,15 +1,13 @@
 <div class = "event">
-  <%t = @tag%>
-  <h3>Outings tagged with "<%= t.name %>"</h3>
-  <% t.places.each do |p| %>
-   <a href = "/places/<%=p.id%>"><%=p.name%></a>
-  <br> <%=p.location%>
-    <% date_array = p.date.to_s.split("-") %>
-   <%= "  #{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %> <br>
+  <h3>Outings tagged with "<%= @tag.name %>"</h3>
+  <% @tag.current_places.each do |place| %>
+   <a href = "/places/<%=place.id%>"><%=place.name%></a>
+  <br> <%=place.location%><br>
+   <%=  place.pretty_time %> <br>
   <% end %>
   <br>
   <div class = "admin">
-    <%=link_to 'Delete this tag', "/tags/#{t.id}", :method => :delete %>
+    <%=link_to 'Delete this tag', @tag, :method => :delete %>
   </div>
 </div>
 

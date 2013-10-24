@@ -91,4 +91,5 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
     redirect_to "/places"
   end
 
+# scope :current_places, where("date > ?", 1.day.ago)
 end

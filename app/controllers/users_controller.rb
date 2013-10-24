@@ -10,6 +10,11 @@ def create
     flash[:notice] = "Thank you for signing up!"
     redirect_to root_url
   else
+    if @user.errors.any?
+      @user.errors.messages.each do |error, msg|
+        flash.now.alert = error.to_s.gsub("_confirmation", " ").capitalize + " " + msg.to_s.delete("[]\"\"")
+      end
+    end
     render "new"
   end
 end

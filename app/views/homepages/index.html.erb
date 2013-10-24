@@ -22,11 +22,10 @@ I'm looking for events & venues in <%= form_tag("results", method: :get) do %><%
 <div class = "featured fifteen columns">
 
 <h3>Featured Outings</h3>
-<%place = Place.current_places%>
-<% place.each do |p| %>
+<%@places%>
+<% @places.each do |p| %>
   <a href = "/places/<%=p.id%>"><%= p.name %></a>
-  <% date_array = p.date.to_s.split("-") %>
-  <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %><br>
+  <br><%= p.pretty_time %><br>
   <%= p.venue_address %><br>
   <%= p.description %><br>
   <%if p.tags.empty? == false %>

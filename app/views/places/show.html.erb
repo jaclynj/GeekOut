@@ -1,11 +1,7 @@
 <div class = "event">
   <%p = @place%>
   <h3><%= p.name %></h3>
-  <% if p.date != nil && p.end_date == nil %>
-    <% date_array = p.date.to_s.split("-") %>
-    Date: <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %><br>
-  <%else%>
-  <%end%>
+<%= p.pretty_time %><br>
 
     <% if p.end_date != nil %>
     <% date_array = p.date.to_s.split("-") %>
@@ -53,9 +49,10 @@
   <%end%>
 
   <br>
+  <%if current_user%>
   <div class = "admin">
     <%=link_to 'Edit this outing', "/places/#{p.id}/edit" %>
-    <%=link_to 'Delete this outing', "/places/#{p.id}", :method => :delete %>
   </div>
+  <%end%>
 </div>
 
