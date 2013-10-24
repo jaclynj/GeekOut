@@ -20,10 +20,10 @@
 <%= f.text_area :description %>
 <%= f.label :link, "url for event" %>
 <%= f.text_field :link, {placeholder: "http://"} %><br>
-  <% @tags = p.tags %><br>
-  <%if @tags.empty? == false %>
+  <% @all_tags = p.tags %><br>
+  <%if @all_tags.empty? == false %>
   <h6>Current tags</h6>
-  <% @tags.each do |t| %>
+  <% @all_tags.each do |t| %>
     <a href = "/tags/<%=t.id%>" class = 'two columns'><%= t.name %></a>
   <% end %><br><br>
   <% end%>
