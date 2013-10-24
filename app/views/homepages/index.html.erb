@@ -5,9 +5,10 @@
  <%all_tags = Tag.all%>
  <% ordered_tags = (all_tags.sort {|a,b| a.name <=> b.name}) %>
   <% ordered_tags.each do |t| %>
-  <div class = "home_tags three columns">
-    <%= label_tag("#{t.name}") %>
-    <%= check_box_tag "tags[]", t.id %>
+  <div class = "home_tags five columns">
+    <div class = "one columns"><%= check_box_tag "tags[]", t.id %></div>
+    <div class = "label three columns"><%= label_tag("#{t.name}") %></div>
+
     </div>
   <% end %>
   <div class ="home_tags fifteen columns">
