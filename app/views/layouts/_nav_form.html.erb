@@ -1,9 +1,9 @@
 <h3>Quick Search</h3>
-<%= form_tag("results", method: :get) do %>
+<%= form_tag('/results', method: :get) do %>
 Find events in
 <%= select_tag(:location, options_for_select([['New York, NY', 'New York, NY'], ['Any City', 'Any City'], ['Philadelphia, PA','Philadelphia, PA']] ), {style: 'width: 120px,', class: "collection-select-class"}) %>
 related to
- <%= collection_select("tag", 0, Tag.all, :id, :name, {multiple: true}, {class: "collection-select-class"}) %> <%= submit_tag "Search" %>
+ <%= collection_select("tags", 0, Tag.all, :id, :name, {multiple: true}, {class: "collection-select-class"}) %> <%= submit_tag "Search" %>
 <% end %>
 
 

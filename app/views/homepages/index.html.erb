@@ -7,7 +7,7 @@
   <% ordered_tags.each do |t| %>
   <div class = "home_tags three columns">
     <%= label_tag("#{t.name}") %>
-    <%= check_box_tag "tag[]", t.id %>
+    <%= check_box_tag "tags[]", t.id %>
     </div>
   <% end %>
   <div class ="home_tags fifteen columns">
