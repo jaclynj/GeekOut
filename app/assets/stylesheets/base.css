@@ -151,6 +151,10 @@ h5 {
 	margin: 0 auto;
 	text-align: center;
 }
+
+.label {
+	text-align: left;
+}
 .admin a{
 	padding:3px;
 	margin: 20px 2px;
@@ -183,6 +187,24 @@ h5 {
 .checkboxes label {
 	display: inline;
 	color: #222266
+}
+
+.checkboxes label {
+	display: inline;
+	color: #222266
+}
+
+.match_all button, .match_all input[type="submit"] {
+	width: 100px;
+	height: 40px;
+	padding: 10px;
+	background: #222266;
+	color: #CCCCCC;
+	font-size: 1.2em;
+	font-style: normal;
+	text-decoration: none;
+ 	font-family: 'Tinos', serif;
+ 	border-radius: 6px;
 }
 
 .flash {
