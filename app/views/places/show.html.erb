@@ -34,7 +34,7 @@
   <%else%>
   <%end%>
   <% if p.tags.empty? == false %>
-  <h6>Tags:</h6>
+  <h4>Tags:</h4><br>
   <% p.tags.each do |t| %>
     <a href = "/tags/<%=t.id%>"><%= t.name %></a> |
   <% end %><br><br>

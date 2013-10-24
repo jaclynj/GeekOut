@@ -58,13 +58,15 @@
 <div class ="main container">
   <div class = "main_box sixteen columns">
   <% if flash[:alert] || flash[:notice] %>
-<div class ="flash">
-<% flash.each do |key, msg| %>
-  <%= content_tag :div, msg, :id => key %>
+    <div class ="flash">
+      <% flash.each do |key, msg| %>
+      <%= content_tag :div, msg, :id => key %>
+    </div>
 <% end %>
 <% end %>
+<%= yield %>
 </div>
-    <%= yield %>
+
   </div>
 </div>
     <div class = "footer fifteen columns">
