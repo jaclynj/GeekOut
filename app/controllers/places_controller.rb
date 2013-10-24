@@ -25,7 +25,16 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
 
     place = Place.new()
     place.name = @place[:name]
-    place.date = Date.strptime(@place[:date], "%m/%d/%Y")
+    if @place[:date] != nil && @place[:date] != ""
+      place.date = Date.strptime(@place[:date], "%m/%d/%Y")
+    else
+      place.date = ""
+    end
+    if @place[:end_date] != nil && @place[:end_date] != ""
+      place.end_date = Date.strptime(@place[:end_date], "%m/%d/%Y")
+    else
+      place.end_date = ""
+    end
     place.start_time = @place[:start_time]
     place.sponsor = @place[:sponsor]
     place.location = @place[:location]
@@ -33,7 +42,6 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
     place.description = @place[:description]
     place.link = @place[:link]
     place.end_time = @place[:end_time]
-    place.end_date = Date.strptime(@place[:end_date], "%m/%d/%Y")
     #redirects to '/places/@place_id'
     if place.save
       if @tags != nil
@@ -88,7 +96,7 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
     id = params[:id]
     @place = Place.find(id)
     @place.destroy
-    redirect_to "/places"
+    redirect_to "/"
   end
 
 # scope :current_places, where("date > ?", 1.day.ago)
