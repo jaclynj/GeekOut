@@ -5,7 +5,7 @@ class HomepagesController < ApplicationController
 
   def results
     #filters by tags
-    tag_filter = params[:tag]
+    tag_filter = params[:tags]
     @filtered_by_tag = []
     @filtered_multiple_tags = []
     @filtered_at_least_one_tag = []
