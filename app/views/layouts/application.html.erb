@@ -29,30 +29,31 @@
     <header>
      <!--  LOGO -->
   <div class ="container">
-      <a href ="/">
-  <h1 class = "five columns">
-  <div class = "geek">GEEK</div><div class ="out">out</div></h1></a>
+    <a href ="/">
+    <h1 class = "five columns">
+      <div class = "geek">GEEK</div><div class ="out">out
+    </div></h1></a>
 
-  <nav>
+    <nav>
     <!-- QUICK SEARCH -->
-  <div class = "nav_form seven columns">
-    <%= render partial: 'layouts/nav_form'%>
-    </div
+    <div class = "nav_form seven columns">
+      <%= render partial: 'layouts/nav_form'%>
+    </div>
 
     <!-- USER LOGIN/SIGNUP -->
 
     <%if current_user %>
-    <div class = "logged_in three columns">
-    <h3>Logged in as:</h3> <%= current_user.email %><br><%= link_to "LOGOUT", logout_path %> | <a href = "/places/new">ADD EVENT</a>
-    <% else %>
-    <div class = "current two columns">
-    <%= link_to "ADD EVENT", new_place_path %>
-    <%= link_to "SIGN UP", signup_path %>
-    <%= link_to "LOGIN", login_path %></div>
+      <div class = "logged_in three columns">
+        <h3>Logged in as:</h3> <%= current_user.email %><br><%= link_to "LOGOUT", logout_path %> | <a href = "/places/new">ADD EVENT</a>
+      <% else %>
+        <div class = "current two columns">
+      <%= link_to "ADD EVENT", new_place_path %>
+      <%= link_to "SIGN UP", signup_path %>
+      <%= link_to "LOGIN", login_path %>
+        </div>
+      </div>
     <% end %>
-
-
-</nav>
+  </nav>
 
 </header>
 <div class ="main container">
@@ -60,19 +61,20 @@
   <% if flash[:alert] || flash[:notice] %>
     <div class ="flash">
       <% flash.each do |key, msg| %>
-      <%= content_tag :div, msg, :id => key %>
+        <%= content_tag :div, msg, :id => key %>
+      <% end %>
     </div>
-<% end %>
-<% end %>
+  <% end %>
+  </div>
+
 <%= yield %>
+
 </div>
 
-  </div>
-</div>
     <div class = "footer fifteen columns">
-   | <u><%= link_to "ADD EVENT", new_place_path %></u> |
-    <u><%= link_to "SIGN UP", signup_path %></u> |
-    <u><%= link_to "VIEW ALL TAGS", tags_path %></u> |
-  </div>
+    | <u><%= link_to "ADD EVENT", new_place_path %></u> |
+      <u><%= link_to "SIGN UP", signup_path %></u> |
+      <u><%= link_to "VIEW ALL TAGS", tags_path %></u> |
+    </div>
 </body>
 </html>

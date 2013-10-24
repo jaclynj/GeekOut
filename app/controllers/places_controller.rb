@@ -25,7 +25,7 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
 
     place = Place.new()
     place.name = @place[:name]
-    place.date = @place[:date]
+    place.date = Date.strptime(@place[:date], "%m/%d/%Y")
     place.start_time = @place[:start_time]
     place.sponsor = @place[:sponsor]
     place.location = @place[:location]
@@ -33,7 +33,7 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
     place.description = @place[:description]
     place.link = @place[:link]
     place.end_time = @place[:end_time]
-    place.end_date = @place[:end_date]
+    place.end_date = Date.strptime(@place[:end_date], "%m/%d/%Y")
     #redirects to '/places/@place_id'
     if place.save
       if @tags != nil
