@@ -1,7 +1,7 @@
 <div class = "checkboxes">
-<h4>Find events relevant to your interests!</h4><br>
-I'm looking for events & venues in <%= form_tag("results", method: :get) do %><%= select_tag(:location, options_for_select([['Any City', 'Any City'],['New York, NY', 'New York, NY'], ['Philadelphia, PA','Philadelphia, PA']] ), {:style => 'width: 120px;'}) %>
- related to:<br><br>
+<h2>Find events relevant to your interests!</h2><br>
+<h3>Events & venues in <%= form_tag("results", method: :get) do %><%= select_tag(:location, options_for_select([['Any City', 'Any City'],['New York, NY', 'New York, NY'], ['Philadelphia, PA','Philadelphia, PA']] ), {:style => 'width: 120px;'}) %>
+ related to:</h3><br>
  <%all_tags = Tag.all%>
  <% ordered_tags = (all_tags.sort {|a,b| a.name <=> b.name}) %>
   <% ordered_tags.each do |t| %>
@@ -11,9 +11,10 @@ I'm looking for events & venues in <%= form_tag("results", method: :get) do %><%
     </div>
   <% end %>
   <div class ="home_tags fifteen columns">
-    <%= label_tag("Match All Tags") %>
+    <div class = "match_all"><%= label_tag("Match All Tags") %>
     <%= check_box_tag "match_all", true %>
-    <%= submit_tag "Search" %><a href="/tags" class = 'fifteen columns'>View all categories</a></div>
+    <%= submit_tag "Search" %><br>
+    <a href="/tags"><u>View all categories</u></a></div></div>
 <% end %>
 </div>
 
@@ -21,7 +22,7 @@ I'm looking for events & venues in <%= form_tag("results", method: :get) do %><%
 
 <div class = "featured fifteen columns">
 
-<h3>Featured Outings</h3>
+<h2>Featured Outings</h2>
 <%@places%>
 <% @places.each do |p| %>
   <a href = "/places/<%=p.id%>"><%= p.name %></a>

@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <link href='http://fonts.googleapis.com/css?family=Alex+Brush|Share+Tech+Mono' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Tinos' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 
   <!-- Mobile Specific Metas
@@ -21,6 +22,7 @@
   <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="72x72" href="../../assets/images/apple-touch-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="114x114" href="../../assets/images/apple-touch-icon-114x114.png">
+
 
 </head>
 <body>
@@ -41,9 +43,10 @@
 
     <%if current_user %>
     <div class = "logged_in three columns">
-    Logged in as: <%= current_user.email %><br><%= link_to "LOGOUT", logout_path %> | <a href = "/places/new">ADD EVENT</a>
+    <h3>Logged in as:</h3> <%= current_user.email %><br><%= link_to "LOGOUT", logout_path %> | <a href = "/places/new">ADD EVENT</a>
     <% else %>
     <div class = "current two columns">
+    <%= link_to "ADD EVENT", new_place_path %>
     <%= link_to "SIGN UP", signup_path %>
     <%= link_to "LOGIN", login_path %></div>
     <% end %>
@@ -64,5 +67,10 @@
     <%= yield %>
   </div>
 </div>
+    <div class = "footer fifteen columns">
+   | <u><%= link_to "ADD EVENT", new_place_path %></u> |
+    <u><%= link_to "SIGN UP", signup_path %></u> |
+    <u><%= link_to "VIEW ALL TAGS", tags_path %></u> |
+  </div>
 </body>
 </html>

@@ -1,8 +1,8 @@
-<h2>Outings in <%=@city%></h2>
+<h4>Outings in <%=@city%></h4>
 
 <%if @match_all %>
   <%if @filtered_multiple_tags != [] %>
-      <h2>matching multiple tags</h2>
+      <h4>matching multiple tags</h4><br>
       <%@filtered_multiple_tags.each do |f|%>
         <a href ="/places/<%=f.id%>"><%= f.name %></a><br>
         <% date_array = f.date.to_s.split("-") %>
@@ -17,7 +17,7 @@
   <%end%>
   <%else%>
     <% if @filtered_at_least_one_tag != [] %>
-  <h2>matching at least one tag</h2>
+  <h4>matching at least one tag</h4><br>
   <% @filtered_at_least_one_tag.each do |f|%>
     <a href ="/places/<%=f.id%>"><%= f.name %></a><br>
     <% date_array = f.date.to_s.split("-") %>
@@ -30,7 +30,8 @@
 <% else %>
   <p>No outings match any of your tag filters.</p>
 <%end%>
-<%end%>
+<%end%><br>
+<%=link_to "Back to Home", "/" %>
 
 
 

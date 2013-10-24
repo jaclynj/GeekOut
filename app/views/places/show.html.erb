@@ -1,13 +1,11 @@
 <div class = "event">
   <%p = @place%>
-  <h3><%= p.name %></h3>
+  <h4><%= p.name %></h4><br>
 <%= p.pretty_time %><br>
 
     <% if p.end_date != nil %>
-    <% date_array = p.date.to_s.split("-") %>
-    Start date: <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %>
-    <% date_array = p.end_date.to_s.split("-") %>
-    End date: <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}" %><br>
+    Start date: <%= p.pretty_time %>
+    End date: <%= p.pretty_date %><br>
   <%else%>
   <%end%>
 
