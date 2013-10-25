@@ -30,11 +30,11 @@
      <!--  LOGO -->
   <div class ="container">
     <a href ="/">
-    <h1 class = "five columns">
+    <h1 class = "four columns">
       <div class = "geek">GEEK</div><div class ="out">out
     </div></h1></a>
 
-    <nav>
+    <nav class = "eleven columns">
     <!-- QUICK SEARCH -->
     <div class = "nav_form seven columns">
       <%= render partial: 'layouts/nav_form'%>
@@ -53,6 +53,7 @@
         </div>
       </div>
     <% end %>
+  </div>
   </nav>
 
 </header>
@@ -65,10 +66,10 @@
       <% end %>
     </div>
   <% end %>
-  </div>
 
 <%= yield %>
 
+  </div>
 </div>
 
     <div class = "footer fifteen columns">
