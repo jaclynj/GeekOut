@@ -25,8 +25,8 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
 
     place = Place.new()
     place.name = @place[:name]
-    if @place[:date] != nil && @place[:date] != ""
-      place.date = Date.strptime(@place[:date], "%m/%d/%Y")
+    if @place[:date] != nil && @place[:date] != "" && Date.parse(@place[:date])
+       place.date = Date.strptime(@place[:date], "%m/%d/%Y")
     else
       place.date = ""
     end
@@ -49,7 +49,8 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
       end
       redirect_to "/places/#{place.id}"
     else
-      redirect_to "/places" #add flash
+    flash[:alert] = "Something went wrong! Did you enter the date correctly?"
+    redirect_to :back
     end
   end
 
