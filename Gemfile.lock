@@ -62,9 +62,6 @@ GEM
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
-    httparty (0.12.0)
-      json (~> 1.8)
-      multi_xml (>= 0.5.2)
     i18n (0.6.5)
     journey (1.0.4)
     jquery-rails (3.0.4)
@@ -81,7 +78,6 @@ GEM
     method_source (0.8.2)
     mime-types (1.25)
     multi_json (1.8.2)
-    multi_xml (0.5.5)
     pg (0.17.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -98,7 +94,6 @@ GEM
       pry (>= 0.9.11)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
-    rMeetup (1.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -165,7 +160,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   coffee-rails (~> 3.2.1)
-  httparty
   jquery-rails
   meta_request
   pg
@@ -173,7 +167,6 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   quiet_assets
-  rMeetup
   rails (= 3.2.14)
   rails-erd
   sass-rails (~> 3.2.3)
