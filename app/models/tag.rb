@@ -4,7 +4,7 @@ class Tag < ActiveRecord::Base
   has_many :places, through: :taggings
 
   def current_places
-    self.places.where("date > ?", Date.today)
+    self.places.where("date >= ?", Date.today)
   end
 
 end
