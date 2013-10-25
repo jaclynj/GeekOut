@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
 
+
 #GET '/tags'
   def view
     #view all tags
@@ -28,7 +29,24 @@ class TagsController < ApplicationController
   def show
     id = params[:id]
     @tag = Tag.find(id)
+    # url = "https://api.meetup.com/2/open_events.xml?zip=10012&topic=#{@tag.name}&time=,1w&key=244a69782b412853406c706c4d2f5c57"
+    # response = httparty.get(url)
+      # meetup_info = response["results"]["items"]["item"]
+      # meetup_info.each do |i|
+      #   "address" = i["venue"]["address_1"] + " " + i["venue"]["city"] + ", " + i["venue"]["state"]
+      #   "description" = i["description"]
+      #   "sponsor" = i["group"]["name"]
+      #   "name" = i["name"]
+      #   "link" = i["event_url"]
+      #   "time" = i["time"]
+      #   place = Place.find_by_name("name")
+      #   unless place
+      #     place = Place.create({:name => "name",:date => "time", :address => "address", :description => "description", :sponsor => "sponsor", :link => "link"})
+      #     place.tags << @tag
+      #   end
+      # end
   end
+
 
 #GET '/tags/:id/delete'
   def destroy

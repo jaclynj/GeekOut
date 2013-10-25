@@ -1,10 +1,13 @@
 <div class = "event">
   <h4>Outings tagged with "<%= @tag.name %>"</h4><br>
   <% @tag.current_places.each do |place| %>
-   <a href = "/places/<%=place.id%>"><%=place.name%></a>
-  <br> <%=place.location%><br>
-   <%=  place.pretty_time %> <br>
-  <% end %>
+    <a href = "/places/<%=place.id%>"><%=place.name%></a>
+    <br> <%=place.location%><br>
+    <%=  place.pretty_time %> <br>
+  <% end %><br>
+  <%if current_user%>
+    <%= link_to 'Delete this tag', @tag, :method => :delete %>
+  <%end%>
   <br>
 </div>
 

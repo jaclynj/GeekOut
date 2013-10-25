@@ -17,7 +17,7 @@ class Place < ActiveRecord::Base
   end
 
   def pretty_date
-    self.end_date.strftime("%m/%d/%Y")
+    self.end_date.strftime("%A, %B %e, %Y")
   end
 
 end
