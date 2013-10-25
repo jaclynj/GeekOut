@@ -22,10 +22,14 @@
 <%= f.text_field :link, {placeholder: "http://"} %><br>
   <% @all_tags = p.tags %><br>
   <%if @all_tags.empty? == false %>
+
   <h6>Current tags</h6>
-  <% @all_tags.each do |t| %>
-    <a href = "/tags/<%=t.id%>" class = 'two columns'><%= t.name %></a>
-  <% end %><br><br>
+  <div class = "center form sixteen columns">
+    <% @all_tags.each do |t| %>
+    <a href = "/tags/<%=t.id%>" class = 'center three columns'><%= t.name %></a>
+  <% end %>
+  </div>
+  <br><br>
   <% end%>
 
 <%= f.label :tags, "Add tags (Seperated by commas)" %>
