@@ -5,9 +5,12 @@ gem 'rails', '3.2.14'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'httparty'
 gem 'acts-as-taggable-on'
 gem 'pg'
 gem 'skeleton-rails'
+gem 'rMeetup'
+
 
 group :development, :test do
   gem 'pry-rails'           # Causes rails console to open pry

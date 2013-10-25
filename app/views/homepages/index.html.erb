@@ -24,8 +24,8 @@
 <div class = "featured fifteen columns">
 
 <h2>Featured Outings</h2>
-<%@places%>
-<% @places.each do |p| %>
+<%featured = @places.shuffle.slice(0,3)%>
+<% featured.each do |p| %>
   <a href = "/places/<%=p.id%>"><%= p.name %></a>
   <br><%= p.pretty_time %><br>
   <%= p.venue_address %><br>
