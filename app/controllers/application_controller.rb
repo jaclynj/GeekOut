@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_filter :current_p
 
   def current_p
-    @places = Place.where("date > ?", Date.today)
+    @places = Place.where("date >= ?", Date.today)
     @places
   end
 
