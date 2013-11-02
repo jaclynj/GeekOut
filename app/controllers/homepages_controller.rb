@@ -4,14 +4,20 @@ class HomepagesController < ApplicationController
   end
 
   def results
+
+    #notes from jonathan:
+    # Place.order_by(date: "DESC").where(tag_id: [1,2, 4])
+    # look into Arel
+
     #filters by tags
     tag_filter = params[:tags]
     @filtered_by_tag = []
     @filtered_multiple_tags = []
     @filtered_at_least_one_tag = []
 
+    #notes from jonathan:
     # OPTIMIZE with where statement so that you don't have to do multiple database calls
-    # there shoudl only be 1 call to where
+    # there should only be 1 call to .where()
     # Client.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight, tag1 or tag 2 or tag 3, order_by: "desc")
 
     #filters by location
@@ -52,7 +58,7 @@ class HomepagesController < ApplicationController
       end
     end
 
-    #is match all tags checked?
+    #is "match all tags" checked?
     @match_all = params[:match_all]
 
       #sorts by date
@@ -64,9 +70,6 @@ class HomepagesController < ApplicationController
     @filtered_multiple_tags = @filtered_by_tag.select{|p| @filtered_by_tag.count(p) > 1}
     @filtered_multiple_tags.uniq!
   end
-
-
-
 
 
 end
