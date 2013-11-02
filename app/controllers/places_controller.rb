@@ -19,7 +19,7 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
     @place = params[:place] #TODO remove instance variable
     @tags = @place[:tags]
 
-
+    #notes from jonathan:
     # filtered_params = params[:place].except(:tags) #http://stackoverflow.com/questions/711863/ruby-hash-filter
     # place = Place.new(filtered_params)
 
@@ -34,6 +34,10 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
       place.end_date = Date.strptime(@place[:end_date], "%m/%d/%Y")
     else
       place.end_date = ""
+      #these if/else statements fix a bug i was having where
+      #if you didn't enter a date,
+      #or you endered an invalid date with random letters 'dafda'
+      #the create place/events submission would break
     end
     place.start_time = @place[:start_time]
     place.sponsor = @place[:sponsor]
@@ -42,13 +46,17 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
     place.description = @place[:description]
     place.link = @place[:link]
     place.end_time = @place[:end_time]
-    #redirects to '/places/@place_id'
+    #saves each property individually, since I had to do something
+    # different with the dates and with the tags
+    #this is why i didnt just use place.create(:name => @place[:name], ..etc)
     if place.save
       if @tags != nil
-        place.tag!(@tags)
+        place.tag!(@tags) #see my place model for what this is doing
       end
       redirect_to "/places/#{place.id}"
     else
+    #it doesnt save unless the start date is blank or a number,
+    #if it doesnt save, the user sees this flash alert
     flash[:alert] = "Something went wrong! Did you enter the date correctly?"
     redirect_to :back
     end
@@ -73,6 +81,9 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
     @place = params[:place]
     @tags = @place[:tags]
     place = Place.find(id)
+    #saves each property individually, since I had to do something
+    # different with the tags
+    #this is why i didnt just use place.create(:name => @place[:name], ..etc)
     place.name = @place[:name]
     place.date = @place[:date]
     place.start_time = @place[:start_time]
@@ -85,7 +96,7 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
     place.end_date = @place[:end_date]
     place.save
     if place.save
-      if @tags != nil
+      if @tags != nil #see my place model for what this is doing
         place.tag!(@tags)
       end
       redirect_to("/places")
@@ -99,6 +110,6 @@ before_filter :authorize, only: [:edit, :update, :new, :create, :destroy]
     @place.destroy
     redirect_to "/"
   end
-
+# note from jonathan:
 # scope :current_places, where("date > ?", 1.day.ago)
 end
