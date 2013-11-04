@@ -281,7 +281,7 @@ h5 {
 
 /* #Links
 ================================================== */
-	a, a:visited { color: #222266; text-decoration: none; font-weight: bold; outline: 0; font-family: 'Tinos', sans-serif; }
+	a, a:visited { color: #222266; text-decoration: none; font-weight: bold; outline: 0; font-family: 'Alex Brush', sans-serif; }
 	a:hover, a:focus { color: #333333; }
 	p a, p a:visited { line-height: inherit; }
 
