@@ -9,13 +9,13 @@ class TagsController < ApplicationController
 
 #GET '/tags/new'
   def new
-    #form for new tag, get request
+
     @tag = Tag.new
     #this is for when i was trying to get the meetup API to work. it currently is broken:
-    # url = "https://api.meetup.com/2/open_events.xml?zip=10012&topic=#{@tag.name}&time=,1w&key=244a69782b412853406c706c4d2f5c57"
-    # response = httparty.get(url)
-      # meetup_info = response["results"]["items"]["item"]
-      # meetup_info.each do |i|
+      # url = "https://api.meetup.com/2/open_events.xml?zip=10012&topic=#{@tag.name}&time=,1w&key="+ENV['MEETUP_API']
+      # response = httparty.get(url)
+      #   meetup_info = response["results"]["items"]["item"]
+      #   meetup_info.each do |i|
       #   "address" = i["venue"]["address_1"] + " " + i["venue"]["city"] + ", " + i["venue"]["state"]
       #   "description" = i["description"]
       #   "sponsor" = i["group"]["name"]
