@@ -1,8 +1,8 @@
 <div class = "featured fifteen columns">
 <h4>Outings:</h4><br>
 
-<% @places.each do |p| %>
-  <a href = "/places/<%=p.id%>"><%= p.name %></a>
+<% @outings.each do |p| %>
+  <a href = "/outings/<%=p.id%>"><%= p.name %></a>
     <br><%= p.pretty_time %><br>
     <% if p.venue_address != nil %>
       <%= p.venue_address %><br>

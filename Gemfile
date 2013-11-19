@@ -8,6 +8,7 @@ gem 'rails', '3.2.14'
 gem 'acts-as-taggable-on'
 gem 'pg'
 gem 'skeleton-rails'
+gem 'rename'
 
 
 group :development, :test do

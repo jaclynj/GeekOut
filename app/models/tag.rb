@@ -1,10 +1,10 @@
 class Tag < ActiveRecord::Base
-  attr_accessible :name, :places
+  attr_accessible :name, :outings
   has_many :taggings
-  has_many :places, through: :taggings
+  has_many :outings, through: :taggings
 
-  def current_places
-    self.places.where("date >= ?", Date.today)
+  def current_outings
+    self.outings.where("date >= ?", Date.today)
   end
 
 end

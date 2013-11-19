@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-IntoverseApp::Application.load_tasks
+GeekoutApp::Application.load_tasks

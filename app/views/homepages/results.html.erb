@@ -4,7 +4,7 @@
   <%if @filtered_multiple_tags != [] %>
       <h4>matching multiple tags</h4><br>
       <%@filtered_multiple_tags.each do |f|%>
-        <a href ="/places/<%=f.id%>"><%= f.name %></a><br>
+        <a href ="/outings/<%=f.id%>"><%= f.name %></a><br>
         <% date_array = f.date.to_s.split("-") %>
         Date: <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}"%><br>
         Tags:
@@ -19,7 +19,7 @@
     <% if @filtered_at_least_one_tag != [] %>
   <h4>matching at least one tag</h4><br>
   <% @filtered_at_least_one_tag.each do |f|%>
-    <a href ="/places/<%=f.id%>"><%= f.name %></a><br>
+    <a href ="/outings/<%=f.id%>"><%= f.name %></a><br>
     <% date_array = f.date.to_s.split("-") %>
     Date: <%= "#{date_array[1]}/#{date_array[2]}/#{date_array[0]}"%><br>
   Tags:

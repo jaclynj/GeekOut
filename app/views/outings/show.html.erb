@@ -1,5 +1,5 @@
 <div class = "event">
-  <%p = @place%>
+  <%p = @outing%>
   <h4><%= p.name %></h4><br>
   <% if p.date != nil && p.date != "" %>
     Start date: <%= p.pretty_time %>
@@ -50,8 +50,8 @@
   <br>
   <%if current_user%>
   <div class = "admin">
-    <%=link_to 'Edit this outing', "/places/#{p.id}/edit" %>
-    <%= link_to 'Delete this outing', @place, :method => :delete %>
+    <%=link_to 'Edit this outing', "/outings/#{p.id}/edit" %>
+    <%= link_to 'Delete this outing', @outing, :method => :delete %>
   </div>
   <%end%>
 </div>

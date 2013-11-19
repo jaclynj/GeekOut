@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :current_p
 
-  def current_p #method that makes sure all places/events on the site are current
-    @places = Place.where("date >= ?", Date.today)
-    @places
+  def current_p #method that makes sure all outings/events on the site are current
+    @outings = Outing.where("date >= ?", Date.today)
+    @outings
   end
 
 private

@@ -6,7 +6,7 @@ class HomepagesController < ApplicationController
   def results
 
     #notes from jonathan:
-    # Place.order_by(date: "DESC").where(tag_id: [1,2, 4])
+    # Outing.order_by(date: "DESC").where(tag_id: [1,2, 4])
     # look into Arel
 
     #filters by tags
@@ -23,16 +23,16 @@ class HomepagesController < ApplicationController
     #filters by location
     @city = params[:location]
     if @city == 'Any City' #select all cities
-      @filtered_by_location = @places
+      @filtered_by_location = @outings
       #what you do when user selects tags & all cities
 
       if tag_filter != nil #if the user selected tags
           tag_filter.each do |f| #for each tag selected in the search, find its relations
             @filtered_by_single_tag = Tagging.where({tag_id: f})
             @filtered_by_single_tag.each do |t| #for each selected tag's relations
-              id = t.place_id #find the relations place_id
+              id = t.outing_id #find the relations outing_id
               @filtered_by_single_tag = @filtered_by_location.find_by_id(id)
-              @filtered_by_tag << @filtered_by_single_tag #add that place to 'filteredbytag'
+              @filtered_by_tag << @filtered_by_single_tag #add that outing to 'filteredbytag'
             end
           end
 
@@ -41,15 +41,15 @@ class HomepagesController < ApplicationController
       end
 
     else #filter everything by location
-      @filtered_by_location = @places.where({location: @city})
+      @filtered_by_location = @outings.where({location: @city})
       if @filtered_by_location != [] #if events in that location exist
         if tag_filter != nil #and if the user selected tags
           tag_filter.each do |f| #for each tag selected in the search, find its relations
             @filtered_by_single_tag = Tagging.where({tag_id: f})
             @filtered_by_single_tag.each do |t| #for each selected tag's relations
-              id = t.place_id #find the relations place_id
+              id = t.outing_id #find the relations outing_id
               @filtered_by_single_tag = @filtered_by_location.find_by_id(id)
-              @filtered_by_tag << @filtered_by_single_tag #add that place to 'filteredbytag'
+              @filtered_by_tag << @filtered_by_single_tag #add that outing to 'filteredbytag'
             end
           end
         else #user did not select tags but selected location

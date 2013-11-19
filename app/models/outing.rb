@@ -1,4 +1,4 @@
-class Place < ActiveRecord::Base
+class Outing < ActiveRecord::Base
   attr_accessible :name, :date, :start_time, :sponsor, :location, :venue_address, :description, :link, :tags, :end_time, :end_date, :taggings
   has_many :taggings
   has_many :tags, through: :taggings

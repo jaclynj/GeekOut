@@ -22,10 +22,10 @@ class TagsController < ApplicationController
       #   "name" = i["name"]
       #   "link" = i["event_url"]
       #   "time" = i["time"]
-      #   place = Place.find_by_name("name")
-      #   unless place
-      #     place = Place.create({:name => "name",:date => "time", :address => "address", :description => "description", :sponsor => "sponsor", :link => "link"})
-      #     place.tags << @tag
+      #   outing = Outing.find_by_name("name")
+      #   unless outing
+      #     outing = Outing.create({:name => "name",:date => "time", :address => "address", :description => "description", :sponsor => "sponsor", :link => "link"})
+      #     outing.tags << @tag
       #   end
       # end
   end
